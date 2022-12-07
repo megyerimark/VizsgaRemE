@@ -10,7 +10,7 @@
         <div class="">
             <div class="w-full m-2">
                 @hasanyrole('admin')
-                <a href="#" class="m-2 p-2 bg-green-400 rounded">
+                <a href="{{ route('posts.create') }}" class="m-2 p-2 bg-green-400 rounded">
                     Új poszt
                 </a>
                 @endhasanyrole
@@ -35,7 +35,7 @@
             <td class="px-6 py-4 whitespace-nowrap">{{ $post->id}}</td>
             <td class="px-6 py-4 whitespace-nowrap">{{ $post->title}}</td>
             <td class="px-6 py-4 text-right text-sm">
-                <a href="#" class="m-2 p-2 bg-blue-400 rounded">Szerkesztés</a>
+                <a href="{{ route('posts.edit', $post->id) }}" class="m-2 p-2 bg-blue-400 rounded">Szerkesztés</a>
                 
                 <a href="#" class="m-2 p-2 bg-yellow-400 rounded">Közzététel</a>
                
