@@ -30,6 +30,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get("/posts/create",[PostController::class, "create"])->name("posts.create")->middleware('role:admin');
-Route::get("/posts/{post}/edit",[PostController::class, "edit"])->name("posts.edit");
+Route::get("/posts/{post}/edit",[PostController::class, "edit"])->name("posts.edit")->middleware('role:admin');
 
 require __DIR__.'/auth.php';
