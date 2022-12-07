@@ -9,7 +9,7 @@
     <div class="py- m-6">
         <div class="">
             <div class="w-full m-2">
-                @hasanyrole('writer|admin')
+                @hasanyrole('admin')
                 <a href="#" class="m-2 p-2 bg-green-400 rounded">
                     Új poszt
                 </a>
@@ -22,7 +22,7 @@
           <tr>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Id</th>
             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-200 uppercase tracking-wider">Title</th>
-            
+
             <th scope="col" class="relative px-6 py-3">Edit</th>
           </tr>
         </thead>
@@ -31,12 +31,16 @@
           @foreach (App\Models\Post::all() as $post)
          
           <tr>
+          @can('admin')
             <td class="px-6 py-4 whitespace-nowrap">{{ $post->id}}</td>
             <td class="px-6 py-4 whitespace-nowrap">{{ $post->title}}</td>
             <td class="px-6 py-4 text-right text-sm">
                 <a href="#" class="m-2 p-2 bg-blue-400 rounded">Szerkesztés</a>
+                
                 <a href="#" class="m-2 p-2 bg-yellow-400 rounded">Közzététel</a>
+               
             </td>
+            @endcan
           </tr>
           @endforeach
           <!-- More items... -->
